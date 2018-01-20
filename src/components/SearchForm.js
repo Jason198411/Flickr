@@ -7,19 +7,22 @@ export default class SearchForm extends Component {
 	state = {
 		searchText: ''
 	}
+	// Get information from input  
 	onSearchChange = e => {		
 		this.setState({
 			searchText: e.target.value
 		});
 	}
+	// set router proptype
  	static contextTypes = {
     	router: PropTypes.object.isRequired
   	}
+  	//when click submit runing
 	handleSubmit = e => {
 		e.preventDefault();
 		e.currentTarget.reset();
-		const path = `/${this.state.searchText}`;	    
-      	this.context.router.history.push(path);
+		const path = `/${this.state.searchText}`;//set up url with input content    
+      	this.context.router.history.push(path);//jump to this url
 	}
 	render() {
 		return (		

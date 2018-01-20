@@ -14,13 +14,14 @@ export default class FetchData extends Component {
 		};
 	}
 	componentDidMount() {
+		//Get name from app.js with url  
 		this.performSearch(this.props.match.params.name)			
 	}
 	componentWillReceiveProps(nextProps) {
     	this.performSearch(nextProps.match.params.name);
     	this.setState({loading : true});
  	}
-
+	// Get photo from api by name
 	performSearch = (tag ) => {				
 		axios.get(`https://api.flickr.com/services/rest/?method=flickr.photos.search&api_key=${apiKey}&tags=${tag}&per_page=24&format=json&nojsoncallback=1`)
 			.then(response => {

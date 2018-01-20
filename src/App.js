@@ -22,7 +22,7 @@ class App extends Component {
           <SearchForm />
           <MainNav />
           <Switch>             
-            <Route exact path="/" render={ () => <Redirect to="/cats"/> }/>
+            <Route exact path="/" render={ () => <Redirect to="/cats"/> }/>// Default display cats' photos
             <Route path="/:name"  component={FetchData} /> 
             <Route component={NotFound} />
           </Switch>                             
