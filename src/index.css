@@ -75,7 +75,7 @@ input {
 .photo-container li:hover img {
   transform: scale(1.65);
 }
-.photo-container .not-found {
+.photo-container .not-found, url-error{
   width: 100%;
 }
 

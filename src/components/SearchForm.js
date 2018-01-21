@@ -21,7 +21,7 @@ export default class SearchForm extends Component {
 	handleSubmit = e => {
 		e.preventDefault();
 		e.currentTarget.reset();
-		const path = `/${this.state.searchText}`;//set up url with input content    
+		const path = `/search/${this.state.searchText}`;//set up url with input content    
       	this.context.router.history.push(path);//jump to this url
 	}
 	render() {

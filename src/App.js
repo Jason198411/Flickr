@@ -2,10 +2,9 @@ import React, {
   Component
 } from 'react';
 import './App.css';
-import FetchData from './components/FetchData';
-import MainNav from './components/MainNav';
-import NotFound from './components/NotFound';
-import SearchForm from './components/SearchForm';
+
+import UrlError from './components/UrlError';
+import Container from './components/Container';
 import {
   BrowserRouter,
   Route,
@@ -14,17 +13,15 @@ import {
 } from 'react-router-dom';
 
 class App extends Component {
-
   render() {
     return (
       <BrowserRouter>
         <div className="container">     
-          <SearchForm />
-          <MainNav />
           <Switch>             
-            <Route exact path="/" render={ () => <Redirect to="/cats"/> }/>// Default display cats' photos
-            <Route path="/:name"  component={FetchData} /> 
-            <Route component={NotFound} />
+            <Route exact path="/" render={ () => <Redirect to="/search/cats"/> }/>
+            <Route exact path="/search" render={ () => <Redirect to="/search/cats"/> }/>
+            <Route exact path="/search/:name"  component={Container} /> 
+            <Route component={UrlError} />
           </Switch>                             
         </div>
       </BrowserRouter>

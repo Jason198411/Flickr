@@ -3,7 +3,8 @@ import React, {
 } from 'react';
 import axios from 'axios';
 import PhotoList from './PhotoList';
-import apiKey from '../config'
+import apiKey from '../config';
+
 
 export default class FetchData extends Component {
 	constructor(props) {
@@ -14,11 +15,12 @@ export default class FetchData extends Component {
 		};
 	}
 	componentDidMount() {
-		//Get name from app.js with url  
-		this.performSearch(this.props.match.params.name)			
+		//Get name from container and run performSearch  
+		this.performSearch(this.props.name)			
 	}
+	//runing this method when updata
 	componentWillReceiveProps(nextProps) {
-    	this.performSearch(nextProps.match.params.name);
+    	this.performSearch(nextProps.name);
     	this.setState({loading : true});
  	}
 	// Get photo from api by name
@@ -38,10 +40,15 @@ export default class FetchData extends Component {
 		return (
 			(this.state.loading) ?
 			<p>Loading...</p> :
-			<div className="photo-container">
-				<h2>{this.props.match.params.name}</h2> 
-			    <PhotoList data = {this.state.photos} />
+			<div>
+				<div className="photo-container">
+					<h2>{this.props.name}</h2> 
+			    	<PhotoList data = {this.state.photos} />
+				</div>
 			</div>
+
+
+
 		);
 	}
 
