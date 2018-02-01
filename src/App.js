@@ -21,7 +21,7 @@ class App extends Component {
             <Route exact path="/flickr/" render={ () => <Redirect to="/search/cats"/> }/>
             <Route exact path="/search" render={ () => <Redirect to="/search/cats"/> }/>
             <Route exact path="/search/:name"  component={Container} /> 
-            <Route component={Container} />
+            <Route component={} />
           </Switch>                             
         </div>
       </BrowserRouter>
