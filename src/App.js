@@ -18,10 +18,10 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">     
           <Switch>             
-            <Route exact path="/flickr/" render={ () => <Redirect to="/search/cats"/> }/>
+            <Route exact path="/" render={ () => <Redirect to="/search/cats"/> }/>
             <Route exact path="/search" render={ () => <Redirect to="/search/cats"/> }/>
             <Route exact path="/search/:name"  component={Container} /> 
-            <Route component={} />
+            <Route component={UrlError} />
           </Switch>                             
         </div>
       </BrowserRouter>
